@@ -1,0 +1,4 @@
+out/
+logs/
+config/config.json
+__pycache__/

@@ -1,0 +1,7 @@
+{
+    "rss_url": "RSS_URL_HERE",
+    "notion_key": "NOTION_KEY_HERE",
+    "database_id": "DATABASE_ID_HERE",
+    "whisper_model": "WHISPER_MODEL_HERE",
+    "openai_model": "OPENAI_MODEL_HERE"
+}
