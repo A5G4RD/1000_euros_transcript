@@ -216,7 +216,7 @@ last_notion_entry = get_last_notion_entry(notion_client, DATABASE_ID)
 
 # Parse the date from the last Notion entry
 notion_date = last_notion_entry["properties"].get("Date")["date"]["start"]
-parsed_notion_date = time.strptime(notion_date, "%Y-%m-%d")
+parsed_notion_date = datetime.datetime.strptime(notion_date, "%Y-%m-%d")
 
 # Load the RSS feed
 logging.info(f"Loading RSS feed from {RSS_URL}.")
@@ -228,7 +228,7 @@ last_entry = get_last_rss_entry(feed)
 feed_date = datetime.datetime.strptime(last_entry.published, "%a, %d %b %Y %H:%M:%S %z")
 
 # Check if the last RSS entry is different from the last Notion entry
-if feed_date == parsed_notion_date:
+if feed_date.date() == parsed_notion_date.date():
     logging.info("The last RSS entry is the same as the last Notion entry. No new entry to process.")
     exit()
 
